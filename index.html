@@ -3,60 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to CVForge</title>
+  <title>CVForge - Build Your Dream Resume</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="landing-page">
-    <div class="content">
-      <h1>Welcome to <span>CVForge</span></h1>
-      <p>Effortlessly create a professional CV in minutes. Just enter your details, and we'll do the rest!</p>
+  <header class="navbar">
+    <div class="logo">CVForge</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#cta">Get Started</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Build Your Perfect CV <span>Instantly</span></h1>
+      <p>Create a professional resume in just a few clicks. No hassle, no stress!</p>
       <button onclick="startGenerator()">Get Started</button>
     </div>
-  </div>
+    <div class="hero-image">
+      <img src="assets/hero-image.png" alt="CV Illustration">
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features">
+    <h2>Why Choose CVForge?</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <img src="assets/easy.png" alt="Easy to Use">
+        <h3>Easy to Use</h3>
+        <p>No technical skills required—just fill out the form, and you're set!</p>
+      </div>
+      <div class="feature">
+        <img src="assets/customizable.png" alt="Customizable">
+        <h3>Customizable Templates</h3>
+        <p>Choose from a variety of professional templates tailored to your industry.</p>
+      </div>
+      <div class="feature">
+        <img src="assets/pdf.png" alt="Instant PDF">
+        <h3>Instant PDF</h3>
+        <p>Download your CV instantly in a clean, professional PDF format.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>"This tool saved me hours of work. My CV looks amazing!"</p>
+        <span>- Alex J.</span>
+      </div>
+      <div class="testimonial">
+        <p>"Super easy to use, and the templates are top-notch!"</p>
+        <span>- Maria T.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section id="cta">
+    <h2>Ready to Build Your CV?</h2>
+    <button onclick="startGenerator()">Start Now</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 CVForge | All rights reserved.</p>
+  </footer>
 
   <script>
     function startGenerator() {
       window.location.href = "generator.html";
     }
   </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV Generator</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Quick CV Generator</h1>
-  </header>
-  <main>
-    <form id="cvForm">
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" placeholder="Your Name" required>
-      
-      <label for="email">Email:</label>
-      <input type="email" id="email" placeholder="Your Email" required>
-      
-      <label for="phone">Phone:</label>
-      <input type="text" id="phone" placeholder="Your Phone" required>
-      
-      <label for="skills">Skills:</label>
-      <textarea id="skills" placeholder="E.g., JavaScript, Python, Design" required></textarea>
-      
-      <label for="experience">Work Experience:</label>
-      <textarea id="experience" placeholder="Your Work Experience" required></textarea>
-      
-      <button type="button" onclick="generatePDF()">Generate PDF</button>
-    </form>
-  </main>
-  <footer>
-    <p>&copy; 2024 CV Generator</p>
-  </footer>
-  <script src="script.js"></script>
 </body>
 </html>
