@@ -3,56 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CVForge - Build Your CV</title>
+  <title>CVForge - Build Your Dream Resume</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
+  <header class="navbar">
+    <div class="logo">CVForge</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#cta">Get Started</a>
+    </nav>
+  </header>
+
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Transform Your <span>Career</span></h1>
-      <p>Create a professional CV in just a few clicks. Stand out from the crowd.</p>
+      <h1>Build Your Perfect CV <span>Instantly</span></h1>
+      <p>Create a professional resume in just a few clicks. No hassle, no stress!</p>
       <button onclick="startGenerator()">Get Started</button>
+    </div>
+    <div class="hero-image">
+      <img src="assets/hero-image.png" alt="CV Illustration">
     </div>
   </section>
 
   <!-- Features Section -->
-  <section class="features">
+  <section id="features">
     <h2>Why Choose CVForge?</h2>
     <div class="features-grid">
       <div class="feature">
-        <img src="assets/feature-1.png" alt="Ease of Use">
+        <img src="assets/easy.png" alt="Easy to Use">
         <h3>Easy to Use</h3>
-        <p>Fill in your details effortlessly—no technical knowledge required!</p>
+        <p>No technical skills required—just fill out the form, and you're set!</p>
       </div>
       <div class="feature">
-        <img src="assets/feature-2.png" alt="Customizable Templates">
+        <img src="assets/customizable.png" alt="Customizable">
         <h3>Customizable Templates</h3>
-        <p>Choose from professionally designed templates tailored to your needs.</p>
+        <p>Choose from a variety of professional templates tailored to your industry.</p>
       </div>
       <div class="feature">
-        <img src="assets/feature-3.png" alt="Instant PDF">
+        <img src="assets/pdf.png" alt="Instant PDF">
         <h3>Instant PDF</h3>
-        <p>Download your CV in a polished PDF format within seconds.</p>
+        <p>Download your CV instantly in a clean, professional PDF format.</p>
       </div>
     </div>
   </section>
 
   <!-- Testimonials Section -->
-  <section class="testimonials">
+  <section id="testimonials">
     <h2>What Our Users Say</h2>
-    <div class="testimonial">
-      <img src="assets/testimonial.jpg" alt="Happy User">
-      <p>"CVForge simplified the process of creating a resume. Highly recommended!"</p>
-      <span>- Emily R.</span>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>"This tool saved me hours of work. My CV looks amazing!"</p>
+        <span>- Alex J.</span>
+      </div>
+      <div class="testimonial">
+        <p>"Super easy to use, and the templates are top-notch!"</p>
+        <span>- Maria T.</span>
+      </div>
     </div>
   </section>
 
   <!-- Call-to-Action Section -->
-  <section class="cta">
-    <h2>Ready to Create Your CV?</h2>
+  <section id="cta">
+    <h2>Ready to Build Your CV?</h2>
     <button onclick="startGenerator()">Start Now</button>
   </section>
 
@@ -61,40 +76,6 @@
   </footer>
 
   <script>
-    // GSAP Scroll Animations
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.from(".hero-content", {
-      opacity: 0,
-      y: 50,
-      duration: 1.5,
-      ease: "power2.inOut"
-    });
-
-    gsap.from(".features-grid .feature", {
-      opacity: 0,
-      y: 50,
-      stagger: 0.3,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".features",
-        start: "top 80%",
-        toggleActions: "play none none none",
-      }
-    });
-
-    gsap.from(".testimonial", {
-      opacity: 0,
-      scale: 0.8,
-      duration: 1,
-      scrollTrigger: {
-        trigger: ".testimonials",
-        start: "top 80%",
-        toggleActions: "play none none none",
-      }
-    });
-
     function startGenerator() {
       window.location.href = "generator.html";
     }
