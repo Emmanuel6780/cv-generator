@@ -19,6 +19,38 @@
         Transform your ideas into a professional CV with just a few clicks.
       </p>
       <button class="cta-button" onclick="startGenerator()">Get Started</button>
+      <button class="cta-button" onclick="startGenerator()">Get Started</button>
+
+<script>
+  // GSAP Animation for Hero Section
+  gsap.from(".headline", {
+    opacity: 0,
+    y: 50,
+    duration: 1.5,
+    ease: "power2.out"
+  });
+
+  gsap.from(".subheadline", {
+    opacity: 0,
+    y: 50,
+    duration: 1.5,
+    delay: 0.5,
+    ease: "power2.out"
+  });
+
+  gsap.from(".cta-button", {
+    opacity: 0,
+    scale: 0.8,
+    duration: 1,
+    delay: 1,
+    ease: "bounce.out"
+  });
+
+  // Updated function to navigate to the Get Started page
+  function startGenerator() {
+    window.location.href = "get-started.html"; // Redirect to Get Started page
+  }
+</script>
     </div>
   </div>
 
