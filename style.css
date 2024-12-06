@@ -1,0 +1,107 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    scroll-behavior: smooth;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #4CAF50;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .navbar nav a {
+    color: white;
+    margin-left: 1rem;
+    text-decoration: none;
+  }
+  
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(to bottom right, #4CAF50, #2E7D32);
+    color: white;
+    height: 100vh;
+  }
+  
+  .hero-content {
+    max-width: 50%;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content h1 span {
+    color: #FFC107;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-content button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    color: #4CAF50;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #features, #testimonials, #cta {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .feature img {
+    width: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonials .testimonial {
+    margin: 1rem 0;
+    font-style: italic;
+  }
+  
+  #cta {
+    background-color: #4CAF50;
+    color: white;
+    padding: 3rem 2rem;
+  }
+  
+  #cta button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #FFC107;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
