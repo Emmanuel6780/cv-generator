@@ -1,58 +1,107 @@
-/* General Reset */
-* {
+/* General Styling */
+body, html {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    scroll-behavior: smooth;
   }
   
-  body, html {
-    height: 100%;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  /* Landing Page Styling */
-  .landing-page {
+  .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100%;
-    background: url('assets/background.jpg') no-repeat center center/cover;
+    padding: 1rem 2rem;
+    background-color: #4CAF50;
     color: white;
-    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
   
-  .content {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 600px;
+  .navbar nav a {
+    color: white;
+    margin-left: 1rem;
+    text-decoration: none;
   }
   
-  h1 {
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(to bottom right, #4CAF50, #2E7D32);
+    color: white;
+    height: 100vh;
+  }
+  
+  .hero-content {
+    max-width: 50%;
+  }
+  
+  .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
   }
   
-  h1 span {
-    color: #4CAF50;
+  .hero-content h1 span {
+    color: #FFC107;
   }
   
-  p {
+  .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
   }
   
-  button {
-    padding: 0.8rem 2rem;
+  .hero-content button {
+    padding: 1rem 2rem;
     font-size: 1rem;
-    color: white;
-    background-color: #4CAF50;
+    color: #4CAF50;
+    background-color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
   
-  button:hover {
-    background-color: #45a049;
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #features, #testimonials, #cta {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .feature img {
+    width: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonials .testimonial {
+    margin: 1rem 0;
+    font-style: italic;
+  }
+  
+  #cta {
+    background-color: #4CAF50;
+    color: white;
+    padding: 3rem 2rem;
+  }
+  
+  #cta button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #FFC107;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
   
