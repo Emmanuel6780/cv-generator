@@ -4,13 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CVForge - Unlock Your Career Potential</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    .hero-content {
+      text-align: center;
+    }
+    .headline {
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+    .headline span {
+      color: #ffcc00;
+    }
+    .subheadline {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+    .cta-button {
+      margin: 20px 10px 0;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background: #0056b3;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    form, .cv-preview {
+      margin: 20px 0;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #fefefe;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .cv-preview {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 <body>
   <!-- Hero Section -->
   <div class="hero">
-    <div class="overlay"></div>
     <div class="hero-content">
       <h1 class="headline">
         Build <span>Your</span> <br> Future <span>Today</span>
@@ -18,51 +100,46 @@
       <p class="subheadline">
         Transform your ideas into a professional CV with just a few clicks.
       </p>
-      <button class="cta-button" onclick="startGenerator()">Get Started</button>
-      <button class="cta-button" onclick="startGenerator()">Get Started</button>
-
-<script>
-  // GSAP Animation for Hero Section
-  gsap.from(".headline", {
-    opacity: 0,
-    y: 50,
-    duration: 1.5,
-    ease: "power2.out"
-  });
-
-  gsap.from(".subheadline", {
-    opacity: 0,
-    y: 50,
-    duration: 1.5,
-    delay: 0.5,
-    ease: "power2.out"
-  });
-
-  gsap.from(".cta-button", {
-    opacity: 0,
-    scale: 0.8,
-    duration: 1,
-    delay: 1,
-    ease: "bounce.out"
-  });
-
-  // Updated function to navigate to the Get Started page
-  function startGenerator() {
-    window.location.href = "get-started.html"; // Redirect to Get Started page
-  }
-</script>
+      <button class="cta-button" onclick="showCVForm()">Get Started</button>
     </div>
   </div>
 
+  <!-- CV Form Section -->
+  <div id="cvFormSection" class="container" style="display: none;">
+    <h1>CV Generator</h1>
+    <form id="cvForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Your Name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Your Email" required>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" placeholder="Your Phone Number">
+
+      <label for="education">Education:</label>
+      <textarea id="education" placeholder="Your Education Details"></textarea>
+
+      <label for="experience">Work Experience:</label>
+      <textarea id="experience" placeholder="Your Work Experience"></textarea>
+
+      <label for="skills">Skills:</label>
+      <textarea id="skills" placeholder="Your Skills"></textarea>
+
+      <button type="button" id="generateBtn">Generate CV</button>
+    </form>
+    <div id="cvPreview" class="cv-preview"></div>
+    <button id="downloadBtn" style="display: none;">Download CV as PDF</button>
+  </div>
+
   <script>
-    // GSAP Animation for Hero Section
+    // GSAP Animations
     gsap.from(".headline", {
       opacity: 0,
       y: 50,
       duration: 1.5,
       ease: "power2.out"
     });
-
     gsap.from(".subheadline", {
       opacity: 0,
       y: 50,
@@ -70,7 +147,6 @@
       delay: 0.5,
       ease: "power2.out"
     });
-
     gsap.from(".cta-button", {
       opacity: 0,
       scale: 0.8,
@@ -79,9 +155,54 @@
       ease: "bounce.out"
     });
 
-    function startGenerator() {
-      window.location.href = "generator.html";
+    // Show CV Form
+    function showCVForm() {
+      document.querySelector(".hero").style.display = "none";
+      document.querySelector("#cvFormSection").style.display = "block";
     }
+
+    // CV Generator Script
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("cvForm");
+      const preview = document.getElementById("cvPreview");
+      const downloadBtn = document.getElementById("downloadBtn");
+
+      form.addEventListener("input", () => {
+        const name = document.getElementById("name").value || "Your Name";
+        const email = document.getElementById("email").value || "Your Email";
+        const phone = document.getElementById("phone").value || "Your Phone";
+        const education = document.getElementById("education").value || "Your Education Details";
+        const experience = document.getElementById("experience").value || "Your Work Experience";
+        const skills = document.getElementById("skills").value || "Your Skills";
+
+        preview.innerHTML = `
+          <h2>${name}</h2>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <h3>Education</h3>
+          <p>${education}</p>
+          <h3>Work Experience</h3>
+          <p>${experience}</p>
+          <h3>Skills</h3>
+          <p>${skills}</p>
+        `;
+
+        if (name.trim()) {
+          downloadBtn.style.display = "block";
+        } else {
+          downloadBtn.style.display = "none";
+        }
+      });
+
+      downloadBtn.addEventListener("click", () => {
+        const doc = new jsPDF();
+        doc.html(preview, {
+          callback: (doc) => {
+            doc.save("CV.pdf");
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>

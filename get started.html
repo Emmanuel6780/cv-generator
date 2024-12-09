@@ -3,54 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CVForge - Unlock Your Career Potential</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <title>CV Generator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Hero Section -->
-  <div class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1 class="headline">
-        Unlock <span>Your Career</span> <br> Potential Today
-      </h1>
-      <p class="subheadline">
-        A fast and easy way to create your professional CV. Start your journey now!
-      </p>
-      <button class="cta-button" onclick="startGenerator()">Get Started</button>
+  <div class="container">
+    <h1>CV Generator</h1>
+    <form id="cvForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Your Name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Your Email" required>
+      
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" placeholder="Your Phone Number">
+      
+      <label for="education">Education:</label>
+      <textarea id="education" placeholder="Education Details"></textarea>
+      
+      <label for="experience">Work Experience:</label>
+      <textarea id="experience" placeholder="Work Experience"></textarea>
+      
+      <label for="skills">Skills:</label>
+      <textarea id="skills" placeholder="Your Skills"></textarea>
+      
+      <button type="button" id="generateBtn">Generate CV</button>
+    </form>
+    
+    <div id="cvPreview" class="cv-preview">
+      <!-- CV preview will appear here -->
     </div>
+    
+    <button id="downloadBtn">Download PDF</button>
   </div>
-
-  <script>
-    // GSAP Animation for Hero Section
-    gsap.from(".headline span", {
-      opacity: 0,
-      y: 20,
-      duration: 1.2,
-      ease: "power2.out"
-    });
-
-    gsap.from(".subheadline", {
-      opacity: 0,
-      y: 30,
-      duration: 1.5,
-      delay: 0.4,
-      ease: "power2.out"
-    });
-
-    gsap.from(".cta-button", {
-      opacity: 0,
-      scale: 0.8,
-      duration: 1,
-      delay: 0.8,
-      ease: "bounce.out"
-    });
-
-    // Button Redirect Function
-    function startGenerator() {
-      window.location.href = "get-started.html";
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
