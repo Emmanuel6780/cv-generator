@@ -117,6 +117,12 @@
       <label for="phone">Phone:</label>
       <input type="tel" id="phone" placeholder="Your Phone Number">
 
+      <label for="address">Address:</label>
+      <textarea id="address" placeholder="Your Address"></textarea>
+
+      <label for="website">Website/LinkedIn:</label>
+      <input type="url" id="website" placeholder="Your Website or LinkedIn">
+
       <label for="education">Education:</label>
       <textarea id="education" placeholder="Your Education Details"></textarea>
 
@@ -171,6 +177,8 @@
         const name = document.getElementById("name").value || "Your Name";
         const email = document.getElementById("email").value || "Your Email";
         const phone = document.getElementById("phone").value || "Your Phone";
+        const address = document.getElementById("address").value || "Your Address";
+        const website = document.getElementById("website").value || "Your Website/LinkedIn";
         const education = document.getElementById("education").value || "Your Education Details";
         const experience = document.getElementById("experience").value || "Your Work Experience";
         const skills = document.getElementById("skills").value || "Your Skills";
@@ -179,6 +187,8 @@
           <h2>${name}</h2>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Address:</strong> ${address}</p>
+          <p><strong>Website/LinkedIn:</strong> <a href="${website}" target="_blank">${website}</a></p>
           <h3>Education</h3>
           <p>${education}</p>
           <h3>Work Experience</h3>
